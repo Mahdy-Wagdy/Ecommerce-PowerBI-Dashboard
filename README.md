@@ -19,7 +19,7 @@ This project is an interactive Power BI dashboard designed to analyze e-commerce
 ![Inventory Analysis](https://github.com/Mahdy-Wagdy/Ecommerce-PowerBI-Dashboard/blob/main/Inventory.png)
 
 ### Figma Design
-![Figma Layout](screenshots/figma_design.png)
+![Figma Layout](https://github.com/Mahdy-Wagdy/Ecommerce-PowerBI-Dashboard/blob/main/Customer%20Design.png)
 
 ## Tools Used
 - **Power BI:** For data visualization and dashboard creation.
