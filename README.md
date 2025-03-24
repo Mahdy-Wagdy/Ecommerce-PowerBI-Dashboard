@@ -1,7 +1,7 @@
 # E-commerce Sales and Inventory Dashboard
 
 ## Overview
-This project is an interactive Power BI dashboard designed to analyze e-commerce sales, inventory, and customer feedback for Blinkit (India’s Last Minute App). It provides insights into sales trends, top products, customer segments, and inventory performance, with a user-friendly interface designed in Figma.
+This project is an interactive Power BI dashboard designed to analyze e-commerce sales, inventory, and customer feedback for e-commerce. It provides insights into sales trends, top products, customer segments, and inventory performance, with a user-friendly interface designed in Figma.
 
 ## Features
 - **Sales Analysis:** Tracks sales performance (YTD, last 6/9 months) with a growth rate of -2.79% in 2025 compared to 2024.
