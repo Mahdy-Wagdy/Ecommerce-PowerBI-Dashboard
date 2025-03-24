@@ -15,7 +15,7 @@ This project is an interactive Power BI dashboard designed to analyze e-commerce
 ## Screenshots
 ### Dashboard Pages
 ![Sales Overview](https://github.com/Mahdy-Wagdy/Ecommerce-PowerBI-Dashboard/blob/main/Sales%20Overview.png)
-![Customer Feedback](screenshots/customer_feedback.png)  
+![Customers](https://github.com/Mahdy-Wagdy/Ecommerce-PowerBI-Dashboard/blob/main/Customer.png)
 ![Inventory Analysis](screenshots/inventory.png)  
 
 ### Figma Design
