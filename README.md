@@ -14,7 +14,7 @@ This project is an interactive Power BI dashboard designed to analyze e-commerce
 
 ## Screenshots
 ### Dashboard Pages
-![Sales Overview]([screenshots/sales_overview.png](https://github.com/Mahdy-Wagdy/Ecommerce-PowerBI-Dashboard/blob/main/Sales%20Overview.png))  
+![Sales Overview](https://github.com/Mahdy-Wagdy/Ecommerce-PowerBI-Dashboard/blob/main/Sales%20Overview.png) 
 ![Customer Feedback](screenshots/customer_feedback.png)  
 ![Inventory Analysis](screenshots/inventory.png)  
 
