@@ -32,57 +32,57 @@ This project is an interactive Power BI dashboard designed to analyze e-commerce
 The following SQL View (`ecommerce_database`) was created to integrate data from multiple tables and calculate key metrics:
 
 ```sql
-CREATE 
-    ALGORITHM = UNDEFINED 
-    DEFINER = `root`@`localhost` 
-    SQL SECURITY DEFINER
-VIEW `ecommerce_database` AS
-    SELECT 
-        orders.order_id,
-        customer.customer_id,
-        orders.delivery_partner_id,
-        order_item.product_id,
-        customer_feedbacks.feedback_id,
-        orders.order_date AS order_datetime,
-        customer.area,
-        customer.customer_name,
-        customer.customer_segment,
-        products.product_name,
-        products.category,
-        products.price,
-        order_item.quantity,
-        ROUND(products.price * order_item.quantity, 2) AS value,
-        orders.payment_method,
-        delivery.promised_time,
-        delivery.actual_time,
-        delivery.delivery_time_minutes,
-        COALESCE(delivery.reasons_if_delayed, 'No delay') AS reasons_if_delayed,
-        CASE 
-            WHEN delivery.actual_time > delivery.promised_time THEN 'Delayed'
-            ELSE 'On Time'
-        END AS delivery_status,
-        customer_feedbacks.rating,
-        customer_feedbacks.feedback_category,
-        customer_feedbacks.feedback_text,
-        customer_feedbacks.sentiment AS feedback_segment,
-        CAST(orders.order_date AS DATE) AS date,
-        rating.Emoji,
-        rating.Star,
-        category.Img,
-        CASE 
-            WHEN _Customer_Meaures.Period_Customer_PY IS NOT NULL 
-                 AND _Customer_Meaures.Period_Customer_PY <> 0 
-            THEN (_Customer_Meaures.Period_Customer_CY - _Customer_Meaures.Period_Customer_PY) / _Customer_Meaures.Period_Customer_PY
-            ELSE NULL
-        END AS Customer_Growth
-    FROM orders
-    JOIN customer ON orders.customer_id = customer.customer_id
-    JOIN order_item ON order_item.order_id = orders.order_id
-    JOIN products ON order_item.product_id = products.product_id
-    JOIN customer_feedbacks ON customer_feedbacks.customer_id = orders.customer_id 
-                             AND customer_feedbacks.order_id = orders.order_id
-    JOIN delivery ON delivery.delivery_partner_id = orders.delivery_partner_id 
-                  AND delivery.order_id = orders.order_id
+SELECT 
+    orders.order_id,
+    customer.customer_id,
+    orders.delivery_partner_id,
+    order_item.product_id,
+    customer_feedbacks.feedback_id,
+    orders.order_date AS order_datetime,
+    customer.area,
+    customer.customer_name,
+    customer.customer_segment,
+    products.product_name,
+    products.category,
+    products.price,
+    order_item.quantity,
+    ROUND(products.price * order_item.quantity, 2) AS value,
+    orders.payment_method,
+    delivery.promised_time,
+    delivery.actual_time,
+    delivery.delivery_time_minutes,
+    COALESCE(delivery.reasons_if_delayed, 'No delay') AS reasons_if_delayed,
+    CASE 
+        WHEN delivery.actual_time > delivery.promised_time THEN 'Delayed'
+        ELSE 'On Time'
+    END AS delivery_status,
+    customer_feedbacks.rating,
+    customer_feedbacks.feedback_category,
+    customer_feedbacks.feedback_text,
+    customer_feedbacks.sentiment AS feedback_segment,
+    CAST(orders.order_date AS DATE) AS date,
+    rating.Emoji,
+    rating.Star,
+    category.Img,
+    CASE 
+        WHEN _Customer_Meaures.Period_Customer_PY IS NOT NULL 
+             AND _Customer_Meaures.Period_Customer_PY <> 0 
+        THEN (_Customer_Meaures.Period_Customer_CY - _Customer_Meaures.Period_Customer_PY) / _Customer_Meaures.Period_Customer_PY
+        ELSE NULL
+    END AS Customer_Growth
+FROM orders
+JOIN customer ON orders.customer_id = customer.customer_id
+JOIN order_item ON order_item.order_id = orders.order_id
+JOIN products ON order_item.product_id = products.product_id
+JOIN customer_feedbacks ON customer_feedbacks.customer_id = orders.customer_id 
+                         AND customer_feedbacks.order_id = orders.order_id
+JOIN delivery ON delivery.delivery_partner_id = orders.delivery_partner_id 
+              AND delivery.order_id = orders.order_id
+JOIN rating ON customer_feedbacks.rating = rating.Rating
+JOIN category ON products.category = category.category
+JOIN _Customer_Meaures ON _Customer_Meaures.customer_id = customer.customer_id
+WHERE orders.order_date >= '2024-01-01' AND orders.order_date <= '2025-03-01'
+
     JOIN rating ON customer_feedbacks.rating = rating.Rating
     JOIN category ON products.category = category.category
     JOIN _Customer_Meaures ON _Customer_Meaures.customer_id = customer.customer_id
